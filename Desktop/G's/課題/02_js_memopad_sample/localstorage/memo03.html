@@ -114,20 +114,20 @@
         })
         //NO1の処理
         $("#save1").on("click", function () {
-            const data = {
+            const data1 = {
                 title: $("#input1").val(),
                 text: $("#text_area1").val(),
             };
-            console.log(data);
-            const jsonData = JSON.stringify(data);
+            console.log(data1);
+            const jsonData = JSON.stringify(data1);
             console.log(jsonData);
-            localStorage.setItem("memo", jsonData);
+            localStorage.setItem("memo1", jsonData);
             alert("保存しました！");
         })
 
         //保存されているデータを削除する処理
         $("#clear1").on("click", function () {
-            localStorage.removeItem("memo");
+            localStorage.removeItem("memo1");
             $("#input1").val("");
             $("#text_area1").val("");
             alert("削除しました！");
@@ -135,43 +135,34 @@
         })
 
         //データが存在した場合は保存冴えれているデータを取得して表示
-        if (localStorage.getItem("memo")) {
-            const jsonData = localStorage.getItem("memo");
+        if (localStorage.getItem("memo1")) {
+            const jsonData = localStorage.getItem("memo1");
             console.log(jsonData);
-            const data = JSON.parse(jsonData);
-            console.log(data);
-            $("#input1").val(data.titile);
-            $("#text_area1").val(data.text);
+            const data1 = JSON.parse(jsonData);
+            console.log(data1);
+            $("#input1").val(data1.title);
+            $("#text_area1").val(data1.text);
+
         }
-        $("#save1").on("click", function () {
-            const data = {
-                title: $("#input1").val(),
-                text: $("#text_area1").val(),
-            };
-            console.log(data);
-            const jsonData = JSON.stringify(data);
-            console.log(jsonData);
-            localStorage.setItem("memo", jsonData);
-        })
         
 
         //N02の処理
         $("#save2").on("click", function () {
-            const data = {
+            const data2 = {
                 title: $("#input2").val(),
                 text: $("#text_area2").val(),
             };
-            console.log(data);
-            const jsonData = JSON.stringify(data);
+            console.log(data2);
+            const jsonData = JSON.stringify(data2);
             console.log(jsonData);
-            localStorage.setItem("memo", jsonData);
+            localStorage.setItem("memo2", jsonData);
             alert("保存しました！");
 
         })
 
         //保存されているデータを削除する処理
         $("#clear2").on("click", function () {
-            localStorage.removeItem("memo");
+            localStorage.removeItem("memo2");
             $("#input2").val("");
             $("#text_area2").val("");
             alert("削除しました！");
@@ -179,13 +170,13 @@
         })
 
         //データが存在した場合は保存冴えれているデータを取得して表示
-        if (localStorage.getItem("memo")) {
-            const jsonData = localStorage.getItem("memo");
+        if (localStorage.getItem("memo2")) {
+            const jsonData = localStorage.getItem("memo2");
             console.log(jsonData);
-            const data = JSON.parse(jsonData);
-            console.log(data);
-            $("#input2").val(data.titile);
-            $("#text_area2").val(data.text);
+            const data2 = JSON.parse(jsonData);
+            console.log(data2);
+            $("#input2").val(data2.title);
+            $("#text_area2").val(data2.text);
         }
 
        
@@ -193,55 +184,55 @@
         //No3の処理
      
         $("#save3").on("click", function () {
-            const data = {
+            const data3 = {
                 title: $("#input3").val(),
                 text: $("#text_area3").val(),
             };
-            console.log(data);
-            const jsonData = JSON.stringify(data);
+            console.log(data3);
+            const jsonData = JSON.stringify(data3);
             console.log(jsonData);
-            localStorage.setItem("memo", jsonData);
+            localStorage.setItem("memo3", jsonData);
             alert("保存しました！");
 
         })
 
         //保存されているデータを削除する処理
         $("#clear3").on("click", function () {
-            localStorage.removeItem("memo");
+            localStorage.removeItem("memo3");
             $("#input3").val("");
             $("#text_area3").val("");
             alert("削除しました！");
 
         })
 
-        //データが存在した場合は保存冴えれているデータを取得して表示
-        if (localStorage.getItem("memo")) {
-            const jsonData = localStorage.getItem("memo");
+        //データが存在した場合は保存されているデータを取得して表示
+        if (localStorage.getItem("memo3")) {
+            const jsonData = localStorage.getItem("memo3");
             console.log(jsonData);
-            const data = JSON.parse(jsonData);
-            console.log(data);
-            $("#input3").val(data.titile);
-            $("#text_area3").val(data.text);
+            const data3 = JSON.parse(jsonData);
+            console.log(data3);
+            $("#input3").val(data3.title);
+            $("#text_area3").val(data3.text);
         } 
 
   //No4の処理
 
     $("#save4").on("click", function () {
-        const data = {
+        const data4 = {
             title: $("#input4").val(),
             text: $("#text_area4").val(),
         };
-        console.log(data);
-        const jsonData = JSON.stringify(data);
+        console.log(data4);
+        const jsonData = JSON.stringify(data4);
         console.log(jsonData);
-        localStorage.setItem("memo", jsonData);
+        localStorage.setItem("memo4", jsonData);
         alert("保存しました！");
 
     })
 
     //保存されているデータを削除する処理
     $("#clear4").on("click", function () {
-        localStorage.removeItem("memo");
+        localStorage.removeItem("memo4");
         $("#input4").val("");
         $("#text_area4").val("");
         alert("削除しました！");
@@ -249,32 +240,32 @@
     })
 
     //データが存在した場合は保存冴えれているデータを取得して表示
-    if (localStorage.getItem("memo")) {
-        const jsonData = localStorage.getItem("memo");
+    if (localStorage.getItem("memo4")) {
+        const jsonData = localStorage.getItem("memo4");
         console.log(jsonData);
-        const data = JSON.parse(jsonData);
-        console.log(data);
-        $("#input4").val(data.titile);
-        $("#text_area4").val(data.text);
+        const data4 = JSON.parse(jsonData);
+        console.log(data4);
+        $("#input4").val(data4.title);
+        $("#text_area4").val(data4.text);
     } 
         //No5の処理
 
         $("#save5").on("click", function () {
-            const data = {
+            const data5 = {
                 title: $("#input5").val(),
                 text: $("#text_area5").val(),
             };
-            console.log(data);
-            const jsonData = JSON.stringify(data);
+            console.log(data5);
+            const jsonData = JSON.stringify(data5);
             console.log(jsonData);
-            localStorage.setItem("memo", jsonData);
+            localStorage.setItem("memo5", jsonData);
             alert("保存しました！");
 
         })
 
         //保存されているデータを削除する処理
         $("#clear5").on("click", function () {
-            localStorage.removeItem("memo");
+            localStorage.removeItem("memo5");
             $("#input5").val("");
             $("#text_area5").val("");
             alert("削除しました！");
@@ -282,32 +273,32 @@
         })
 
         //データが存在した場合は保存冴えれているデータを取得して表示
-        if (localStorage.getItem("memo")) {
-            const jsonData = localStorage.getItem("memo");
+        if (localStorage.getItem("memo5")) {
+            const jsonData = localStorage.getItem("memo5");
             console.log(jsonData);
-            const data = JSON.parse(jsonData);
-            console.log(data);
-            $("#input5").val(data.titile);
-            $("#text_area5").val(data.text);
+            const data5 = JSON.parse(jsonData);
+            console.log(data5);
+            $("#input5").val(data5.title);
+            $("#text_area5").val(data5.text);
         } 
 
         //No6の処理
         $("#save6").on("click", function () {
-            const data = {
+            const data6 = {
                 title: $("#input6").val(),
                 text: $("#text_area6").val(),
             };
-            console.log(data);
-            const jsonData = JSON.stringify(data);
+            console.log(data6);
+            const jsonData = JSON.stringify(data6);
             console.log(jsonData);
-            localStorage.setItem("memo", jsonData);
+            localStorage.setItem("memo6", jsonData);
             alert("保存しました！");
 
         })
 
         //保存されているデータを削除する処理
         $("#clear6").on("click", function () {
-            localStorage.removeItem("memo");
+            localStorage.removeItem("memo6");
             $("#input6").val("");
             $("#text_area6").val("");
             alert("削除しました！");
@@ -315,22 +306,22 @@
         })
 
         //データが存在した場合は保存冴えれているデータを取得して表示
-        if (localStorage.getItem("memo")) {
-            const jsonData = localStorage.getItem("memo");
+        if (localStorage.getItem("memo6")) {
+            const jsonData = localStorage.getItem("memo6");
             console.log(jsonData);
-            const data = JSON.parse(jsonData);
-            console.log(data);
-            $("#input6").val(data.titile);
-            $("#text_area6").val(data.text);
+            const data6 = JSON.parse(jsonData);
+            console.log(data6);
+            $("#input6").val(data6.title);
+            $("#text_area6").val(data6.text);
         }   
             //No7の処理
             $("#save7").on("click", function () {
-                const data = {
+                const data7 = {
                     title: $("#input7").val(),
                     text: $("#text_area7").val(),
                 };
-                console.log(data);
-                const jsonData = JSON.stringify(data);
+                console.log(data7);
+                const jsonData = JSON.stringify(data7);
                 console.log(jsonData);
                 localStorage.setItem("memo", jsonData);
                 alert("保存しました！");
@@ -339,7 +330,7 @@
 
             //保存されているデータを削除する処理
             $("#clear7").on("click", function () {
-                localStorage.removeItem("memo");
+                localStorage.removeItem("memo7");
                 $("#input7").val("");
                 $("#text_area7").val("");
                 alert("削除しました！");
@@ -347,31 +338,31 @@
             })
 
             //データが存在した場合は保存冴えれているデータを取得して表示
-            if (localStorage.getItem("memo")) {
-                const jsonData = localStorage.getItem("memo");
+            if (localStorage.getItem("memo7")) {
+                const jsonData = localStorage.getItem("memo7");
                 console.log(jsonData);
-                const data = JSON.parse(jsonData);
-                console.log(data);
-                $("#input7").val(data.titile);
-                $("#text_area7").val(data.text);
+                const data7 = JSON.parse(jsonData);
+                console.log(data7);
+                $("#input7").val(data7.title);
+                $("#text_area7").val(data7.text);
             }   
             //No8の処理
             $("#save8").on("click", function () {
-                const data = {
+                const data8 = {
                     title: $("#input8").val(),
                     text: $("#text_area8").val(),
                 };
-                console.log(data);
-                const jsonData = JSON.stringify(data);
+                console.log(data8);
+                const jsonData = JSON.stringify(data8);
                 console.log(jsonData);
-                localStorage.setItem("memo", jsonData);
+                localStorage.setItem("memo7", jsonData);
                 alert("保存しました！");
 
             })
 
             //保存されているデータを削除する処理
             $("#clear8").on("click", function () {
-                localStorage.removeItem("memo");
+                localStorage.removeItem("memo8");
                 $("#input8").val("");
                 $("#text_area8").val("");
                 alert("削除しました！");
@@ -379,13 +370,13 @@
             })
 
             //データが存在した場合は保存冴えれているデータを取得して表示
-            if (localStorage.getItem("memo")) {
-                const jsonData = localStorage.getItem("memo");
+            if (localStorage.getItem("memo8")) {
+                const jsonData = localStorage.getItem("memo8");
                 console.log(jsonData);
-                const data = JSON.parse(jsonData);
-                console.log(data);
-                $("#input8").val(data.titile);
-                $("#text_area8").val(data.text);
+                const data8 = JSON.parse(jsonData);
+                console.log(data8);
+                $("#input8").val(data8.title);
+                $("#text_area8").val(data8.text);
             }   
 
     </script>
