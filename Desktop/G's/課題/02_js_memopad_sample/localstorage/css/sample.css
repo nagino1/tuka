@@ -1,0 +1,130 @@
+body{
+    margin:0;
+    padding:0;
+    text-align:center;
+
+}
+header{
+    background-color: rgb(189, 171, 69);
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+}
+main{
+    border-bottom:1px solid #ccc;
+    position: relative;
+    background-image: url(../img/umi1.jpg);
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: cover;
+        
+}
+
+.text_list{
+    display: flex;
+    justify-content: center;
+    width: auto;
+}
+
+footer{
+    background-color: rgb(189, 171, 69);
+    border-bottom:1px solid #ccc;
+    text-align: center;
+    font-weight: bold;
+}
+
+p{
+    font-size:200%;
+    text-align: center;
+    border-bottom:1px solid #fff;
+    height:100px;
+}
+.list{
+    font-size: 10px;
+    font-weight: bold;
+    height: auto;
+    color: #fff;
+}
+
+ul{
+    padding: 0;
+    border-top: 1px solid #000000;
+    display:table;  /* 定義 */
+    table-layout: fixed;
+    width:50%;
+}
+
+li{
+    list-style-type:none;
+    border: 1px solid #666;
+    background-color: #FFF;
+    display:table-cell;  /* 定義 */
+    cursor: pointer;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+
+}
+li:hover{
+    background: #0066CC;
+    color:#fff;
+}
+input,textarea{
+    margin: 3%;
+    width: 90%;
+    box-shadow: 3px 3px 3px 3px #555;
+    height: 150px;
+    box-sizing: border-box;
+    background-color:rgb(193, 243, 255);
+}
+input{
+    height: 30px;
+    font-size: 10px;
+    background-color:rgb(193, 243, 255);
+
+}
+#textarea1{
+    height: 230px;
+    font-size: 10px;
+    background-color:rgb(193, 243, 255);
+
+}
+#textarea2{
+    height: 230px;
+    font-size: 10px;
+}
+#textarea3{
+    height: 230px;
+    font-size: 10px;
+    
+}
+#text1{
+    margin: 3%;
+    width: 95%;
+    box-shadow: 3px 3px 3px 3px #555;
+}
+#text2{
+    margin: 3%;
+    width: 95%;
+    box-shadow: 3px 3px 3px 3px #555;
+}
+#text3{
+    margin: 3%;
+    width: 95%;
+    box-shadow: 3px 3px 3px 3px #555;
+}
+.no{
+    width: 150px;
+}
+#memo{
+    font-size: 20px;
+}
+h1{
+    margin: 0%;
+}
+
+
+
+
+
+
+

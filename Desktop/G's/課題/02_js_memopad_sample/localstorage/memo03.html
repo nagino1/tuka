@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>myMemoPad中級</title>
+    <link rel="stylesheet" href="css/sample.css">
+</head>
+
+<body>
+    <header>
+        <h1>アポ調整リスト</h1>
+    </header>
+
+    <main style="display: none" >
+        <div class="text_list">
+            <div>
+                <p class="list">
+                NO.1<input type="text1" id="input1"></p>
+                <textarea id="text_area1"></textarea>
+            </div>
+            <div>
+                <p class="list">
+                NO.2<input type="text2" id="input2"></p>
+                <textarea id="text_area2"></textarea>
+             </div>
+            <div>
+                <p class="list">
+                No.3<input type="text3" id="input3"></p>
+                <textarea id="text_area3"></textarea>
+            </div>
+            <div>
+                <p class="list">
+                NO.4<input type="text4" id="input4"></p>
+                <textarea id="text_area4"></textarea>
+            </div>
+            <div>
+                <p class="list">
+                NO.5<input type="text5" id="input5"></p>
+                <textarea id="text_area5"></textarea>
+            </div>
+            <div>
+                <p class="list">
+                No.6<input type="text6" id="input6"></p>
+                <textarea id="text_area6"></textarea>
+            </div>
+            <div>
+                <p class="list">
+                No.7<input type="text7" id="input7"></p>
+                <textarea id="text_area7"></textarea>
+            </div>
+            <div>
+                <p class="list">
+                    No.8<input type="text8" id="input8"></p>
+                <textarea id="text_area8"></textarea>
+            </div>
+ 
+        </div>
+        
+        <ul>
+            <li class="no">No.1</li>
+            <li id="save1" >Save</li>
+            <li id="clear1">Clear</li>
+        </ul>
+        <ul>
+            <li class="no">No.2</li>
+            <li id="save2">Save</li>
+            <li id="clear2">Clear</li>
+        </ul>
+        <ul>
+            <li class="no">No.3</li>
+            <li id="save3">Save</li>
+            <li id="clear3">Clear</li>
+        </ul>
+        <ul>
+            <li class="no">No.4</li>
+            <li id="save4">Save</li>
+            <li id="clear4">Clear</li>
+        </ul>
+        <ul>
+            <li class="no">No.5</li>
+            <li id="save5">Save</li>
+            <li id="clear5">Clear</li>
+        </ul>
+        <ul>
+            <li class="no">No.6</li>
+            <li id="save6">Save</li>
+            <li id="clear6">Clear</li>
+        </ul>
+        <ul>
+            <li class="no">No.7</li>
+            <li id="save7">Save</li>
+            <li id="clear7">Clear</li>
+        </ul>
+        <ul>
+            <li class="no">No.8</li>
+            <li id="save8">Save</li>
+            <li id="clear8">Clear</li>
+        </ul>
+
+        <P><button>カレンダー</button></P>
+
+    </main>
+
+    <footer>
+        <small id="memo">appointment</small>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $("#memo").on("click",function(){
+            $("main").fadeIn(2000);
+        })
+        //NO1の処理
+        $("#save1").on("click", function () {
+            const data = {
+                title: $("#input1").val(),
+                text: $("#text_area1").val(),
+            };
+            console.log(data);
+            const jsonData = JSON.stringify(data);
+            console.log(jsonData);
+            localStorage.setItem("memo", jsonData);
+            alert("保存しました！");
+        })
+
+        //保存されているデータを削除する処理
+        $("#clear1").on("click", function () {
+            localStorage.removeItem("memo");
+            $("#input1").val("");
+            $("#text_area1").val("");
+            alert("削除しました！");
+
+        })
+
+        //データが存在した場合は保存冴えれているデータを取得して表示
+        if (localStorage.getItem("memo")) {
+            const jsonData = localStorage.getItem("memo");
+            console.log(jsonData);
+            const data = JSON.parse(jsonData);
+            console.log(data);
+            $("#input1").val(data.titile);
+            $("#text_area1").val(data.text);
+        }
+        $("#save1").on("click", function () {
+            const data = {
+                title: $("#input1").val(),
+                text: $("#text_area1").val(),
+            };
+            console.log(data);
+            const jsonData = JSON.stringify(data);
+            console.log(jsonData);
+            localStorage.setItem("memo", jsonData);
+        })
+        
+
+        //N02の処理
+        $("#save2").on("click", function () {
+            const data = {
+                title: $("#input2").val(),
+                text: $("#text_area2").val(),
+            };
+            console.log(data);
+            const jsonData = JSON.stringify(data);
+            console.log(jsonData);
+            localStorage.setItem("memo", jsonData);
+            alert("保存しました！");
+
+        })
+
+        //保存されているデータを削除する処理
+        $("#clear2").on("click", function () {
+            localStorage.removeItem("memo");
+            $("#input2").val("");
+            $("#text_area2").val("");
+            alert("削除しました！");
+
+        })
+
+        //データが存在した場合は保存冴えれているデータを取得して表示
+        if (localStorage.getItem("memo")) {
+            const jsonData = localStorage.getItem("memo");
+            console.log(jsonData);
+            const data = JSON.parse(jsonData);
+            console.log(data);
+            $("#input2").val(data.titile);
+            $("#text_area2").val(data.text);
+        }
+
+       
+        
+        //No3の処理
+     
+        $("#save3").on("click", function () {
+            const data = {
+                title: $("#input3").val(),
+                text: $("#text_area3").val(),
+            };
+            console.log(data);
+            const jsonData = JSON.stringify(data);
+            console.log(jsonData);
+            localStorage.setItem("memo", jsonData);
+            alert("保存しました！");
+
+        })
+
+        //保存されているデータを削除する処理
+        $("#clear3").on("click", function () {
+            localStorage.removeItem("memo");
+            $("#input3").val("");
+            $("#text_area3").val("");
+            alert("削除しました！");
+
+        })
+
+        //データが存在した場合は保存冴えれているデータを取得して表示
+        if (localStorage.getItem("memo")) {
+            const jsonData = localStorage.getItem("memo");
+            console.log(jsonData);
+            const data = JSON.parse(jsonData);
+            console.log(data);
+            $("#input3").val(data.titile);
+            $("#text_area3").val(data.text);
+        } 
+
+  //No4の処理
+
+    $("#save4").on("click", function () {
+        const data = {
+            title: $("#input4").val(),
+            text: $("#text_area4").val(),
+        };
+        console.log(data);
+        const jsonData = JSON.stringify(data);
+        console.log(jsonData);
+        localStorage.setItem("memo", jsonData);
+        alert("保存しました！");
+
+    })
+
+    //保存されているデータを削除する処理
+    $("#clear4").on("click", function () {
+        localStorage.removeItem("memo");
+        $("#input4").val("");
+        $("#text_area4").val("");
+        alert("削除しました！");
+
+    })
+
+    //データが存在した場合は保存冴えれているデータを取得して表示
+    if (localStorage.getItem("memo")) {
+        const jsonData = localStorage.getItem("memo");
+        console.log(jsonData);
+        const data = JSON.parse(jsonData);
+        console.log(data);
+        $("#input4").val(data.titile);
+        $("#text_area4").val(data.text);
+    } 
+        //No5の処理
+
+        $("#save5").on("click", function () {
+            const data = {
+                title: $("#input5").val(),
+                text: $("#text_area5").val(),
+            };
+            console.log(data);
+            const jsonData = JSON.stringify(data);
+            console.log(jsonData);
+            localStorage.setItem("memo", jsonData);
+            alert("保存しました！");
+
+        })
+
+        //保存されているデータを削除する処理
+        $("#clear5").on("click", function () {
+            localStorage.removeItem("memo");
+            $("#input5").val("");
+            $("#text_area5").val("");
+            alert("削除しました！");
+
+        })
+
+        //データが存在した場合は保存冴えれているデータを取得して表示
+        if (localStorage.getItem("memo")) {
+            const jsonData = localStorage.getItem("memo");
+            console.log(jsonData);
+            const data = JSON.parse(jsonData);
+            console.log(data);
+            $("#input5").val(data.titile);
+            $("#text_area5").val(data.text);
+        } 
+
+        //No6の処理
+        $("#save6").on("click", function () {
+            const data = {
+                title: $("#input6").val(),
+                text: $("#text_area6").val(),
+            };
+            console.log(data);
+            const jsonData = JSON.stringify(data);
+            console.log(jsonData);
+            localStorage.setItem("memo", jsonData);
+            alert("保存しました！");
+
+        })
+
+        //保存されているデータを削除する処理
+        $("#clear6").on("click", function () {
+            localStorage.removeItem("memo");
+            $("#input6").val("");
+            $("#text_area6").val("");
+            alert("削除しました！");
+
+        })
+
+        //データが存在した場合は保存冴えれているデータを取得して表示
+        if (localStorage.getItem("memo")) {
+            const jsonData = localStorage.getItem("memo");
+            console.log(jsonData);
+            const data = JSON.parse(jsonData);
+            console.log(data);
+            $("#input6").val(data.titile);
+            $("#text_area6").val(data.text);
+        }   
+            //No7の処理
+            $("#save7").on("click", function () {
+                const data = {
+                    title: $("#input7").val(),
+                    text: $("#text_area7").val(),
+                };
+                console.log(data);
+                const jsonData = JSON.stringify(data);
+                console.log(jsonData);
+                localStorage.setItem("memo", jsonData);
+                alert("保存しました！");
+
+            })
+
+            //保存されているデータを削除する処理
+            $("#clear7").on("click", function () {
+                localStorage.removeItem("memo");
+                $("#input7").val("");
+                $("#text_area7").val("");
+                alert("削除しました！");
+
+            })
+
+            //データが存在した場合は保存冴えれているデータを取得して表示
+            if (localStorage.getItem("memo")) {
+                const jsonData = localStorage.getItem("memo");
+                console.log(jsonData);
+                const data = JSON.parse(jsonData);
+                console.log(data);
+                $("#input7").val(data.titile);
+                $("#text_area7").val(data.text);
+            }   
+            //No8の処理
+            $("#save8").on("click", function () {
+                const data = {
+                    title: $("#input8").val(),
+                    text: $("#text_area8").val(),
+                };
+                console.log(data);
+                const jsonData = JSON.stringify(data);
+                console.log(jsonData);
+                localStorage.setItem("memo", jsonData);
+                alert("保存しました！");
+
+            })
+
+            //保存されているデータを削除する処理
+            $("#clear8").on("click", function () {
+                localStorage.removeItem("memo");
+                $("#input8").val("");
+                $("#text_area8").val("");
+                alert("削除しました！");
+
+            })
+
+            //データが存在した場合は保存冴えれているデータを取得して表示
+            if (localStorage.getItem("memo")) {
+                const jsonData = localStorage.getItem("memo");
+                console.log(jsonData);
+                const data = JSON.parse(jsonData);
+                console.log(data);
+                $("#input8").val(data.titile);
+                $("#text_area8").val(data.text);
+            }   
+
+    </script>
+
+</body>
+
+</html>
