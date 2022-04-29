@@ -36,7 +36,12 @@ p{
     font-size:200%;
     text-align: center;
     border-bottom:1px solid #fff;
-    height:100px;
+    height: 50%;
+    margin: 0;
+    box-sizing: border-box;
+    font-weight: bold;
+    color: white;
+
 }
 .list{
     font-size: 10px;
@@ -44,13 +49,17 @@ p{
     height: auto;
     color: #fff;
 }
+.list1{
+    width: 30%;
+    margin: 0 10px 0 40px;
+}
 
 ul{
     padding: 0;
     border-top: 1px solid #000000;
     display:table;  /* 定義 */
     table-layout: fixed;
-    width:50%;
+    width:100%;
 }
 
 li{
@@ -122,9 +131,14 @@ h1{
     margin: 0%;
 }
 
+.tx{
+    display: flex; 
+    align-items: center;
 
-
-
-
-
-
+}
+.text_area9{
+    width: 500%;
+    position: relative;
+    height: 200px;
+    margin: 0 5px;
+}
