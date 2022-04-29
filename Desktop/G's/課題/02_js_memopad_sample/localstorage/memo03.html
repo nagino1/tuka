@@ -11,7 +11,7 @@
 
 <body>
     <header>
-        <h1>アポ調整リスト</h1>
+        <h1>スケジュール調整中リスト</h1>
     </header>
 
     <main style="display: none" >
@@ -102,8 +102,9 @@
                 </ul>
             </div>
             <div>
-                <p>TODO</p>
-                <textarea class="text_area9"></textarea>
+                <p class="todo">TODO</p>
+                <textarea id="text_area9"></textarea>
+                <button id="save9">Save</button>
             </div>
         </div>
         
@@ -143,7 +144,7 @@
 
         })
 
-        //データが存在した場合は保存冴えれているデータを取得して表示
+        //データが存在した場合は保存されているデータを取得して表示
         if (localStorage.getItem("memo1")) {
             const jsonData = localStorage.getItem("memo1");
             console.log(jsonData);
@@ -387,6 +388,27 @@
                 $("#input8").val(data8.title);
                 $("#text_area8").val(data8.text);
             }   
+            //TODOの保存処理
+                $("#save9").on("click", function () {
+                    const data9 = {
+                        text: $("#text_area9").val(),
+                    };
+                    console.log(data9);
+                    const jsonData = JSON.stringify(data9);
+                    console.log(jsonData);
+                    localStorage.setItem("memo9", jsonData);
+                    alert("保存しました！");
+                })
+
+                //データが存在した場合は保存されているデータを取得して表示
+                if (localStorage.getItem("memo9")) {
+                    const jsonData = localStorage.getItem("memo9");
+                    console.log(jsonData);
+                    const data9 = JSON.parse(jsonData);
+                    console.log(data9);
+                    $("#text_area9").val(data9.text);
+
+                }
 
     </script>
 
