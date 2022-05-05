@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>chatApp</title>
+  <style>
+    #output li {
+      background: #ccc;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>施設内通貨</h1>
+  <!-- 入力場所を作成しよう -->
+  <form>
+    <fieldset class="hoge">
+      <legend>通貨計算画面</legend>
+        <!-- 入力 -->
+        <h2>記録</h2>
+        <section id="inputSection">
+          <table class="table-bordered">
+            <thead>
+              <th>name</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input id="name" style="width: 100px;" type="text" value="Aさん"></td>
+                <td>1月:<input style="width: 50px;" type="text" data-group="Unit" value=""></td>
+                <td>2月:<input style="width: 50px;" type="text" data-group="Unit" value=""></td>
+                <td>3月:<input style="width: 50px;" type="text" data-group="Unit" value=""></td>
+                <td>4月:<input style="width: 50px;" type="text" data-group="Unit" value=""></td>
+                <td>5月:<input style="width: 50px;" type="text" data-group="Unit" value=""></td>
+                <td>6月:<input style="width: 50px;" type="text" data-group="Unit" value=""></td>
+                <td>7月:<input style="width: 50px;" type="text" data-group="Unit" value=""></td>
+                <td>8月:<input style="width: 50px;" type="text" data-group="Unit" value=""></td>
+                <td>9月:<input style="width: 50px;" type="text" data-group="Unit" value=""></td>
+                <td>10月:<input style="width: 50px;" type="text" data-group="Unit" value=""></td>
+                <td>11月:<input style="width: 50px;" type="text" data-group="Unit" value=""></td>
+                <td>12月:<input style="width: 50px;" type="text" data-group="Unit" value=""></td>
+                <td>合計:<input id="total" style="width: 50px;" type="text" data-group="Total" value="">coin</td>
+              </tr>
+              <tr>
+                <td><input id="name" style="width: 100px;" type="text" value="Bさん"></td>
+                <td>1月:<input style="width: 50px;" type="text" data-group="Unit" value=""></td>
+                <td>2月:<input style="width: 50px;" type="text" data-group="Unit" value=""></td>
+                <td>3月:<input style="width: 50px;" type="text" data-group="Unit" value=""></td>
+                <td>4月:<input style="width: 50px;" type="text" data-group="Unit" value=""></td>
+                <td>5月:<input style="width: 50px;" type="text" data-group="Unit" value=""></td>
+                <td>6月:<input style="width: 50px;" type="text" data-group="Unit" value=""></td>
+                <td>7月:<input style="width: 50px;" type="text" data-group="Unit" value=""></td>
+                <td>8月:<input style="width: 50px;" type="text" data-group="Unit" value=""></td>
+                <td>9月:<input style="width: 50px;" type="text" data-group="Unit" value=""></td>
+                <td>10月:<input style="width: 50px;" type="text" data-group="Unit" value=""></td>
+                <td>11月:<input style="width: 50px;" type="text" data-group="Unit" value=""></td>
+                <td>12月:<input style="width: 50px;" type="text" data-group="Unit" value=""></td>
+                <td>合計:<input id="total" style="width: 50px;" type="text" data-group="Total" value="">coin</td>
+              </tr>
+              <tr>
+                <td><input id="name" style="width: 100px;" type="text" value="Cさん"></td>
+                <td>1月:<input style="width: 50px;" type="text" data-group="Unit" value=""></td>
+                <td>2月:<input style="width: 50px;" type="text" data-group="Unit" value=""></td>
+                <td>3月:<input style="width: 50px;" type="text" data-group="Unit" value=""></td>
+                <td>4月:<input style="width: 50px;" type="text" data-group="Unit" value=""></td>
+                <td>5月:<input style="width: 50px;" type="text" data-group="Unit" value=""></td>
+                <td>6月:<input style="width: 50px;" type="text" data-group="Unit" value=""></td>
+                <td>7月:<input style="width: 50px;" type="text" data-group="Unit" value=""></td>
+                <td>8月:<input style="width: 50px;" type="text" data-group="Unit" value=""></td>
+                <td>9月:<input style="width: 50px;" type="text" data-group="Unit" value=""></td>
+                <td>10月:<input style="width: 50px;" type="text" data-group="Unit" value=""></td>
+                <td>11月:<input style="width: 50px;" type="text" data-group="Unit" value=""></td>
+                <td>12月:<input style="width: 50px;" type="text" data-group="Unit" value=""></td>
+                <td>合計:<input id="total" style="width: 50px;" type="text" data-group="Total" value="">coin</td>
+              </tr>
+              <tr>
+                <td><input id="name" style="width: 100px;" type="text" value="Dさん"></td>
+                <td>1月:<input style="width: 50px;" type="text" data-group="Unit" value=""></td>
+                <td>2月:<input style="width: 50px;" type="text" data-group="Unit" value=""></td>
+                <td>3月:<input style="width: 50px;" type="text" data-group="Unit" value=""></td>
+                <td>4月:<input style="width: 50px;" type="text" data-group="Unit" value=""></td>
+                <td>5月:<input style="width: 50px;" type="text" data-group="Unit" value=""></td>
+                <td>6月:<input style="width: 50px;" type="text" data-group="Unit" value=""></td>
+                <td>7月:<input style="width: 50px;" type="text" data-group="Unit" value=""></td>
+                <td>8月:<input style="width: 50px;" type="text" data-group="Unit" value=""></td>
+                <td>9月:<input style="width: 50px;" type="text" data-group="Unit" value=""></td>
+                <td>10月:<input style="width: 50px;" type="text" data-group="Unit" value=""></td>
+                <td>11月:<input style="width: 50px;" type="text" data-group="Unit" value=""></td>
+                <td>12月:<input style="width: 50px;" type="text" data-group="Unit" value=""></td>
+                <td>合計:<input id="total" style="width: 50px;" type="text" data-group="Total" value="">coin</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <p><button type="button" onclick="calcTbl()">計算</button></p>
+        <div>
+          <button type="button" id="send">send</button>
+        </div>
+    </fieldset>
+  </form>
+
+  <!-- データ出力場所 -->
+  <ul id="output"></ul>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script>
+    // 日時をいい感じの形式にする関数
+    function convertTimestampToDatetime(timestamp) {
+      const _d = timestamp ? new Date(timestamp * 1000) : new Date();
+      const Y = _d.getFullYear();
+      const m = (_d.getMonth() + 1).toString().padStart(2, '0');
+      const d = _d.getDate().toString().padStart(2, '0');
+      const H = _d.getHours().toString().padStart(2, '0');
+      const i = _d.getMinutes().toString().padStart(2, '0');
+      const s = _d.getSeconds().toString().padStart(2, '0');
+      return `${Y}/${m}/${d} ${H}:${i}:${s}`;
+    }
+  </script>
+  <!-- 以下にfirebaseのコードを貼り付けよう -->
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+    // 🔽 追加 / `9.2.0`の部分を↑のFirestoreから貼り付けたコードのバージョンに合わせる
+      import {
+        getFirestore,
+        collection,
+        addDoc,
+        serverTimestamp,
+        onSnapshot,
+        query,
+        orderBy,
+      } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-firestore.js";
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyC5Is_pBjyHJ4GxneujsZl5_vHKC6J-17Y",
+      authDomain: "tuka202205.firebaseapp.com",
+      projectId: "tuka202205",
+      storageBucket: "tuka202205.appspot.com",
+      messagingSenderId: "973073302564",
+      appId: "1:973073302564:web:3e52b88a498968cd1e04b1"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    //データベースにできるようにする
+    const db = getFirestore(app);
+
+    //クリック時に送信して処理
+    $("#send").on("click",function(){
+      const postData = {
+        name:$("#name").val(),
+        total:$("#total").val(),
+        time:serverTimestamp(),
+      };
+    //Google先生が出しているコード。
+      addDoc(collection(db, "tuka"), postData);
+      $("#total").val("");
+    });
+    // データ取得処理    
+    //onsnapshotを使うと自動でデータを取得してくれる
+    // 🔽 データ取得条件の指定（今回は時間の新しい順に並び替えて取得）
+    const q = query(collection(db, "tuka"), orderBy("time", "desc"));
+    onSnapshot(q, (querySnapshot) => {
+    //querySnapshotにすべてのデータが入っている
+    console.log(querySnapshot.docs);
+    
+    // app.html
+    // 前項の`console.log()`下に記述
+    //生データは使いにくいのでほしいものだけ取り出してドキュメントに入れる
+    const documents = [];
+    querySnapshot.docs.forEach(function (doc) {
+      const data = {
+        id: doc.id,
+        data: doc.data(),
+      };
+      documents.push(data);
+    });
+
+    console.log(documents);
+
+    const htmlElements = [];
+
+    documents.forEach(function(document){
+        htmlElements.push(`
+          <li id="${document.id}">
+            <p>${document.data.name} at ${convertTimestampToDatetime(document.data.time.seconds)}</p>
+            <p>${document.data.total}</p>
+          </li>
+        `);
+    });
+
+      $("#output").html(htmlElements);
+    });
+
+
+
+
+    
+  
+
+   
+
+</script>
+
+</body>
+
+</html>

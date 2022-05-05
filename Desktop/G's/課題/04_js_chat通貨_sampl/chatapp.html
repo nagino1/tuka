@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>chatApp</title>
+  <style>
+    #output li {
+      background: #ccc;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>施設内通貨</h1>
+  <!-- 入力場所を作成しよう -->
+  <form>
+    <fieldset>
+      
+      <legend>通貨計算画面</legend>
+      <table class="table table-bordered">
+        <thead>
+          <th>品名</th>
+          <th>1コイン単価:<input type="text" id="SumUnit" value="10" disabled></th>
+          <th>合計：<input type="text" id="SumTotal" value="" disabled></th>
+        </thead>
+        <tbody>
+          <tr>
+            <td><input type="text" value="Aさん"></td>
+            <td><input type="text" data-group="Unit" value="100">コイン</td>
+            <td><input type="text" data-group="Total" value="108"></td>
+          </tr>
+          <tr>
+            <td><input type="text" value="Bさん"></td>
+            <td><input type="text" data-group="Unit" value="200"></td>
+            <td><input type="text" data-group="Total" value="216"></td>
+          </tr>
+          <tr>
+            <td><input type="text" value="Cさん"></td>
+            <td><input type="text" data-group="Unit" value="300"></td>
+            <td><input type="text" data-group="Total" value="324"></td>
+          </tr>
+        </tbody>
+      </table>
+      <div>
+        獲得者名:<input type="text" id="name">
+      </div>
+      <div>
+        獲得理由:<input type="text" id="text">
+      </div>
+      <div>
+        コイン数:<input type="text_coin" id="text_coin">コイン
+      </div>
+      <div>
+        合計金額:<input type="text_total" id="text_total">円
+      </div>
+      <div class="sample_wrap">
+        <form class="sample_form" method="post" action="">
+          <table class="sample_table">
+            <tr>
+              <th class="sample_th">コイン数:</th>
+              <td class="sample_td"><input value="" name="textbox01" type="text" id="jsNum" class="sample_input">コイン</td>
+            </tr>
+            <tr>
+              <th class="sample_th">合計金額:</th>
+              <td class="sample_td"><input value="" name="textbox02" type="text" id="jsPrice" class="sample_input" readonly>円
+              </td>
+            </tr>
+          </table>
+          <div>
+            <button type="button" id="send">send</button>
+          </div>
+        </form>
+         <p class="sample_p">※1コイン30円</p>
+      </div>
+    </fieldset>
+  </form>
+
+  <!-- データ出力場所 -->
+  <ul id="output"></ul>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script>
+    // 日時をいい感じの形式にする関数
+    function convertTimestampToDatetime(timestamp) {
+      const _d = timestamp ? new Date(timestamp * 1000) : new Date();
+      const Y = _d.getFullYear();
+      const m = (_d.getMonth() + 1).toString().padStart(2, '0');
+      const d = _d.getDate().toString().padStart(2, '0');
+      const H = _d.getHours().toString().padStart(2, '0');
+      const i = _d.getMinutes().toString().padStart(2, '0');
+      const s = _d.getSeconds().toString().padStart(2, '0');
+      return `${Y}/${m}/${d} ${H}:${i}:${s}`;
+    }
+  </script>
+  <!-- 以下にfirebaseのコードを貼り付けよう -->
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    import {
+      getFirestore,
+      collection,
+      addDoc,
+      serverTimestamp,
+      query,
+      orderBy,
+      onSnapshot,
+    } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-firestore.js";
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyDGrKcyHVBufzqtYt304-B35vDkLkY0-GE",
+      authDomain: "chat-4dab8.firebaseapp.com",
+      projectId: "chat-4dab8",
+      storageBucket: "chat-4dab8.appspot.com",
+      messagingSenderId: "462743293088",
+      appId: "1:462743293088:web:d137df90119dbc9a29cdc5"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    //データベースにできるようにする
+    const db = getFirestore(app);
+    //クリック時に送信して処理
+    $("#send").on("click",function(){
+      const postData = {
+        name:$("#name").val(),
+        text:$("#text").val(),
+        time:serverTimestamp(),
+      };
+    //Google先生が出しているコード。
+      addDoc(collection(db, "chat"), postData);
+      $("#text").val("");
+    });
+    // データ取得処理    
+    //onsnapshotを使うと自動でデータを取得してくれる
+    // 🔽 データ取得条件の指定（今回は時間の新しい順に並び替えて取得）
+    const q = query(collection(db, "chat"), orderBy("time", "desc"));
+    onSnapshot(q, (querySnapshot) => {
+    //querySnapshotにすべてのデータが入っている
+    console.log(querySnapshot.docs);
+    
+    // chatapp.html
+    // 前項の`console.log()`下に記述
+    //生データは使いにくいのでほしいものだけ取り出してドキュメントに入れる
+    const documents = [];
+    querySnapshot.docs.forEach(function (doc) {
+      const document = {
+        id: doc.id,
+        data: doc.data(),
+      };
+      documents.push(document);
+    });
+
+    console.log(documents);
+
+    const htmlElements = [];
+
+    documents.forEach(function(document){
+        htmlElements.push(`
+          <li id="${document.id}">
+            <p>${document.data.name} at ${convertTimestampToDatetime(document.data.time.seconds)}</p>
+            <p>${document.data.text}</p>
+          </li>
+        `);
+    });
+
+      $("#output").html(htmlElements);
+    });
+    $(function () {
+        const value = 30; // １コインの価格
+        const maxNum = 100; // 注文できる通貨の上限
+        const tagInput = $('#text_coin'); // 入力対象のinputタグID名
+        const tagOutput = $('#text_total'); // 出力対象のinputタグID名
+        tagInput.on('change', function () {
+          const str = $(this).val();
+          const num = Number(str.replace(/[^0-9]/g, '')); // 整数以外の文字列を削除
+          if (num == 0) {
+            num = '';
+          } else if (num > maxNum) { // 上限を超える個数を入力した場合
+            num = maxNum;
+          }
+          $(this).val(num);
+          if (num != 0) {
+            const price = num * value;
+            tagOutput.val(price);
+          }
+        });
+      });
+
+   
+
+</script>
+
+</body>
+
+</html>
